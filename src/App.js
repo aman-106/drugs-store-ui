@@ -1,17 +1,15 @@
 import React from 'react';
-import Login from './Login';
+import LoginPage from './LoginPage';
+import Dashbaord from './Dashbaord';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <div className="app-bar">
-        <header>
-          StomeD
-      </header>
-      </div>
-      <Login ></Login>
-    </div>
+    <Router>
+      <Route path="/" exact component={LoginPage} />
+      <Route path="/dashbaord/" component={Dashbaord} />
+    </Router>
   );
 }
 

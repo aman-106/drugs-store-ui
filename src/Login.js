@@ -9,7 +9,6 @@ const fbLoginUrl = `https://scontent.fblr2-1.fna.fbcdn.net/v/t39.2365-6/18928641
 
 const useStyles = makeStyles(theme => ({
   button: {
-    marginTop: theme.spacing(1),
   },
   textField: {
     flexGrow: 1,
@@ -20,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   loginBtn: {
+    marginTop: theme.spacing(1),
     textTransform: 'uppercase',
   }
 }));
@@ -60,7 +60,7 @@ function UserPassLogin() {
         onChange={handleChange('password')}
         margin="normal"
       />
-      <Button className={classes.loginBtn} variant="contained" color="primary" className={classes.button}>
+      <Button className={classes.loginBtn} variant="contained" color="primary">
         Log in
       </Button>
     </div>
@@ -81,17 +81,19 @@ function LoginDivider() {
 
 function Login() {
   const authFbUser = useCallback(() => {
-
-  });
+    // axios.get('/auth/facebook')
+  }, []);
 
   return (
     <div className="login-section">
       <div className="login-details">
         <div className="header">To continue, log in to StomeD.</div>
         <div className="fb-login">
-          <div onClick={authFbUser}>
-            <img src={fbLoginUrl} alt={`Continue with Facebook`}></img>
-          </div>
+          <a href="/auth/facebook">
+            <div onClick={authFbUser}>
+              <img src={fbLoginUrl} alt={`Continue with Facebook`}></img>
+            </div>
+          </a>
         </div>
         <LoginDivider />
         <div className="user-pass-login">
